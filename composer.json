@@ -1,0 +1,19 @@
+{
+    "name": "baltr/almost-lara",
+    "description": "Almos laravel mvc",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "baltrunaiteo",
+            "email": "baltrunaiteo@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "require": {
+        "vlucas/phpdotenv": "^5.3"
+    }
+}
