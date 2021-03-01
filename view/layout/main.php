@@ -19,19 +19,16 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="/about">About</a>
-            <a class="nav-link" href="/contact">Contact</a>
+            <a class="nav-link" href="/">Titulinis</a>
+            <a class="nav-link" href="/about">Apie Mus</a>
+            <!-- <a class="nav-link" href="/contact">Contact</a> -->
         </div>
-
-
-
-
-
-       
-
+        <div class="navbar-nav">
+            <a class="nav-link" href="/login">Prisijungti</a>
+            <a class="nav-link" href="/register">Registruotis</a>
+        </div>
     </div>
 </nav>
 
