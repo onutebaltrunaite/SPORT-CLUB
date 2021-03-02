@@ -58,12 +58,18 @@ class Validation
      * @param string $field
      * @return string
      */
-    public function validateName($field)
+    public function validateName($field, $min, $max)
     {
         // Validate Name 
         if (empty($field)) return "Please enter your Name";
 
         if (!preg_match("/^[a-z ,.'-]+$/i", $field)) return "Name must only contain Name characters";
+
+        // if pass length is les then min
+        if (strlen($field) < $min) return "Name must be more than $min characters length";
+
+        // if pass length is more then max
+        if (strlen($field) > $max) return "Name must be less than $max characters length";
 
         return ''; //falsy
     }
@@ -117,22 +123,35 @@ class Validation
 
         if (!preg_match("#[a-z]+#", $passField)) return "Password must include at least one letter!";
 
-        if (!preg_match("#[A-Z]+#", $passField)) return "Password must include at least one Capital letter!";
-
-        // if (!preg_match("#\W+#", $passField)) return "Password must include at least one symbol!";
-
         return '';
     }
 
-    public function confirmPassword($repeatField)
+    public function validatePasswordConfirm($field)
     {
         // validate empty 
-        if (empty($repeatField)) return "Please repeat a password";
+        if (empty($field)) return "Please repeat a password";
 
         if (!$this->password) return 'no password saved';
 
-        if ($repeatField !== $this->password) return "Password must match";
+        if ($field !== $this->password) return "Password must match";
 
         return '';
     }
+
+    public function validatePhone($number)
+    {
+        if (!preg_match("/^[0-9\-]|[\+0-9]|[0-9\s]|[0-9()]*$/", $number)) return "Invalid contact number";
+        
+    }
+
+    public function validateAddress($field, $max)
+    {
+        // if pass length is more then max
+        if (strlen($field) > $max) return "Address must be less than $max characters length";
+
+        return ''; //falsy
+    }
+
+
+
 }
