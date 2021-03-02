@@ -19,19 +19,21 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="/about">About</a>
-            <a class="nav-link" href="/contact">Contact</a>
+            <a class="nav-link" href="/about">About Us</a>
+            <!-- <a class="nav-link" href="/contact">Contact</a> -->
         </div>
-
-
-
-
-
-       
-
+        <div class="navbar-nav">
+        <?php if(!\app\core\Session::isUserLoggedIn()) : ?>
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/register">Register</a>
+        <?php else : ?>   
+            <a class="nav-item nav-link disabled" href="#"><?php echo $_SESSION['user_name']; ?></a>
+            <a class="nav-link" href="/logout">Logout</a>
+        <?php endif; ?>   
+        </div>
     </div>
 </nav>
 

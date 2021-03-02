@@ -106,7 +106,7 @@ class Router
             if (!isset($urlParam['value'])) :
                 // 404
                 $this->response->setResponseCode(404);
-                return $this->renderView('_404');
+                return $this->renderView('404');
             endif;
 
         endif;
