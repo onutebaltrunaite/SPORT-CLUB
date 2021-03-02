@@ -23,10 +23,61 @@ class AuthController extends Controller
         $this->userModel = new UserModel();
     }
 
-    public function login()
+    public function login(Request $request)
     {
-        return $this->render('login');
+        if ($request->isGet()) :
+
+            $data = [
+                'email'     => '',
+                'password'  => '',
+                'errors' => [
+                    'emailErr'     => '',
+                    'passwordErr'  => '',
+                ]
+            ];
+            return $this->render('login', $data);
+
+        endif;
+
+
+        if ($request->isPost()) :
+
+            $data = $request->getBody();
+
+            $data['errors']['emailErr'] = $this->vld->validateLoginEmail($data['email'], $this->userModel);
+            $data['errors']['passwordErr'] = $this->vld->validateEmpty($data['password'], 'Please enter your password');
+
+            // check if we have errors
+            if ($this->vld->ifEmptyArr($data['errors'])) {
+
+            $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+
+            if ($loggedInUser) {
+                $this->startUserSession($loggedInUser);
+                $request->redirect('/');
+                
+            } else {
+                $data['errors']['passwordErr'] = 'Wrong password or email';
+                // load view with errors
+                return $this->render('login', $data);
+            }            
+                
+            }
+
+            return $this->render('login', $data);
+        endif;
     }
+
+
+    public function startUserSession($user)
+    {
+        session_start();
+        $_SESSION['user_id'] = $user->id;
+        $_SESSION['user_email'] = $user->email;
+        $_SESSION['user_name'] = $user->name;
+       
+    }
+
 
     public function register(Request $request)
     {
