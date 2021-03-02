@@ -10,12 +10,12 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <script defer src="./js/app.js"></script>
-    <title>MVC</title>
+    <title>Sport Club</title>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-
+<!-- <a class="navbar-brand" href="#">Gym <strong>Plus++</strong> <i class="fas fa-dumbbell"></i></a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -52,6 +52,15 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
+
+
+
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50 fixed-bottom">
+        <div class="container text-center">
+            <small> &copy; <?php echo date('Y');?>. Onute Baltrunaite, all rights reserved.</small>
+        </div>
+    </footer>
+
 
 </body>
 </html>
