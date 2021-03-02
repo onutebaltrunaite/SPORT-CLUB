@@ -78,7 +78,16 @@ class AuthController extends Controller
        
     }
 
+    public function logout(Request $request)
+    {
+        unset($_SESSION['user_id']);
+        unset($_SESSION['user_email']);
+        unset($_SESSION['user_name']);
 
+        session_destroy();
+        $request->redirect('about');
+        
+    }
     public function register(Request $request)
     {
         if ($request->isGet()) :
