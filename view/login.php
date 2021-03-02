@@ -1,4 +1,4 @@
-<h2 class="text-center mt-5">Prisijungti</h2>
+<h2 class="text-center mt-5">Login</h2>
 <div class="row">
     <div class="col-md-6 mx-auto text-center">
         <div class="card card-body bg-info mt-5">
@@ -12,7 +12,7 @@
                     <input type="password" name="password" id="password" class="form-control form-control-lg" value="">
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-secondary">Prisijungti</button>            
+                    <button type="submit" class="btn btn-secondary">Login</button>            
                 </div>
             </form>
         </div>

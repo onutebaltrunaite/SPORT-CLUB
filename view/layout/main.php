@@ -21,13 +21,13 @@
     </button>
     <div class="collapse navbar-collapse justify-content-around" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-link" href="/">Titulinis</a>
-            <a class="nav-link" href="/about">Apie Mus</a>
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/about">About Us</a>
             <!-- <a class="nav-link" href="/contact">Contact</a> -->
         </div>
         <div class="navbar-nav">
-            <a class="nav-link" href="/login">Prisijungti</a>
-            <a class="nav-link" href="/register">Registruotis</a>
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/register">Register</a>
         </div>
     </div>
 </nav>
