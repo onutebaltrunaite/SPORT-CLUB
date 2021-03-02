@@ -123,7 +123,7 @@ class AuthController extends Controller
             $data['errors']['nameErr'] = $this->vld->validateName($data['name'], 4, 40);
             $data['errors']['surnameErr'] = $this->vld->validateName($data['surname'], 4, 40);
 
-            $data['errors']['emailErr'] = $this->vld->validateEmail($data['email']);
+            $data['errors']['emailErr'] = $this->vld->validateEmail($data['email'], $this->userModel);
 
             $data['errors']['passwordErr'] = $this->vld->validatePassword($data['password'], 4, 10);
 
