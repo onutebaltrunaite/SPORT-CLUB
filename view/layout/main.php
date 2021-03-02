@@ -26,8 +26,13 @@
             <!-- <a class="nav-link" href="/contact">Contact</a> -->
         </div>
         <div class="navbar-nav">
+        <?php if(!\app\core\Session::isUserLoggedIn()) : ?>
             <a class="nav-link" href="/login">Login</a>
             <a class="nav-link" href="/register">Register</a>
+        <?php else : ?>   
+            <a class="nav-item nav-link disabled" href="#"><?php echo $_SESSION['user_name']; ?></a>
+            <a class="nav-link" href="/logout">Logout</a>
+        <?php endif; ?>   
         </div>
     </div>
 </nav>
