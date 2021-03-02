@@ -23,6 +23,7 @@
         <div class="navbar-nav">
             <a class="nav-link" href="/">Home</a>
             <a class="nav-link" href="/about">About Us</a>
+            <a class="nav-link" href="/feedbacks">Feedbacksai</a>
             <!-- <a class="nav-link" href="/contact">Contact</a> -->
         </div>
         <div class="navbar-nav">
