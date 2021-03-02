@@ -85,7 +85,7 @@ class AuthController extends Controller
         unset($_SESSION['user_name']);
 
         session_destroy();
-        $request->redirect('about');
+        $request->redirect('/');
         
     }
     public function register(Request $request)
@@ -142,7 +142,7 @@ class AuthController extends Controller
                 // create user
                 if ($this->userModel->register($data)) {
                     // flash msg maybe?
-                    return $this->render('login');
+                    $request->redirect('login');
                 } else {
                     die('Something went wrong in adding user to db');
                 }
