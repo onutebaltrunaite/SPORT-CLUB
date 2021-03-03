@@ -18,17 +18,63 @@ class FeedbackController extends Controller
         $this->userModel = new UserModel();
     }
 
-    public function feedbacks(Request $request)
-    {
-        // get feedbacks
-        $feedbacks = $this->feedbackModel->getFeedbacks();
 
-        $data = [
-            'feedbacks' => $feedbacks,
+    public function addFeedbacks(Request $request)
+    {
+
+        if ($request->isGet()) :
+            $feedbacks = $this->feedbackModel->getFeedbacks();
             
-        ];
-        return $this->render('feedbacks/feedbacks', $data);
+            $data = [
+                'feedbacks' => $feedbacks,
+                'title' => '',
+                'body' => '',
+                'errors' => [
+                    'titleErr' => '',
+                    'bodyErr' => '',
+                ]
+            ];
+            
+                return $this->render('feedbacks/feedbacks', $data);  
+        endif;
+
+        if ($request->isPost()) :
+
+            $data = $request->getBody();
+            
+            //validate title
+            if (empty($data['title'])) {
+                $data['titleErr'] = "Please enter a title";
+            }
+            // validate body
+            if (empty($data['body'])) {
+                $data['bodyErr'] = "Please enter a body";
+            }
+            // if no errrors
+            if (empty($data['titleErr']) && empty($data['bodyErr'])) {
+
+                if ($this->feedbackModel->addFeedback($data)){
+
+                    $feedbacks = $this->feedbackModel->getFeedbacks(); 
+                        $data = [
+                            'feedbacks' => $feedbacks,
+            
+                        ];
+                        // mano uzdeta
+                        return $this->render('feedbacks/feedbacks', $data); 
+                } else {
+                    die('something went wrong');
+                }
+            } else {
+                return $this->render('feedbacks/feedbacks', $data); 
+            }
+
+            return $this->render('feedbacks/feedbacks', $data); 
+        endif;
     }
+
+
+
 
 
 }
