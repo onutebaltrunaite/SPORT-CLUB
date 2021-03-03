@@ -33,7 +33,7 @@ class AuthController extends Controller
                 'errors' => [
                     'emailErr'     => '',
                     'passwordErr'  => '',
-                ]
+                ],
             ];
             return $this->render('login', $data);
 
@@ -90,6 +90,8 @@ class AuthController extends Controller
     }
     public function register(Request $request)
     {
+        $this->setLayout('auth');
+
         if ($request->isGet()) :
             $data = [
                 'name'      => '',
@@ -121,7 +123,7 @@ class AuthController extends Controller
             $data = $request->getBody();
 
             $data['errors']['nameErr'] = $this->vld->validateName($data['name'], 4, 40);
-            $data['errors']['surnameErr'] = $this->vld->validateName($data['surname'], 4, 40);
+            $data['errors']['surnameErr'] = $this->vld->validateSurname($data['surname'], 4, 40);
 
             $data['errors']['emailErr'] = $this->vld->validateEmail($data['email'], $this->userModel);
 
