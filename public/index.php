@@ -3,6 +3,7 @@ require_once '../vendor/autoload.php';
 
 
 use app\controller\SiteController;
+use app\controller\FeedbackController;
 use app\core\Application;
 use app\core\AuthController;
 
@@ -31,5 +32,10 @@ $app->router->get('/register', [AuthController::class, 'register']);
 $app->router->post('/register', [AuthController::class, 'register']);
 
 $app->router->get('/logout', [AuthController::class, 'logout']);
+
+// $app->router->get('/feedbacks', [FeedbackController::class, 'feedbacks']);
+
+$app->router->get('/feedbacks', [FeedbackController::class, 'addFeedbacks']);
+$app->router->post('/feedbacks', [FeedbackController::class, 'addFeedbacks']);
 
 $app->run();

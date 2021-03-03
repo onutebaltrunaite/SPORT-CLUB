@@ -84,4 +84,17 @@ class UserModel
         }
     }
 
+    public function getUserById($id)
+    {
+        $this->db->query("SELECT name, email FROM users WHERE id = :id");
+
+        $this->db->bind(':id', $id);
+
+        $row = $this->db->singleRow();
+
+        if ($this->db->rowCount() > 0) return $row;
+        return false;
+    }
+
+
 }

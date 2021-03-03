@@ -43,6 +43,10 @@
                 <div class="form-group mt-3">
                     <button type="submit" class="btn btn-secondary">Register</button>            
                 </div>
+                <div class="form-group mt-3">
+                    Already have an account? <a href="/login">Sign up</a>           
+                </div>
+                
             </form>
         </div>
     </div>
