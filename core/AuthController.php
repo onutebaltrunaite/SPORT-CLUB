@@ -57,7 +57,7 @@ class AuthController extends Controller
                 $request->redirect('/');
                 
             } else {
-                $data['errors']['passwordErr'] = 'Wrong password or email';
+                $data['errors']['passwordErr'] = 'Wrong password';
                 // load view with errors
                 return $this->render('login', $data);
             }            
