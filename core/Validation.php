@@ -152,6 +152,31 @@ class Validation
         return ''; //falsy
     }
 
+    public function validateSurname($field, $min, $max)
+    {
+        // Validate Name 
+        if (empty($field)) return "Please enter your Surname";
 
+        if (!preg_match("/^[a-z ,.'-]+$/i", $field)) return "Surname must only contain Surname characters";
+
+        // if pass length is les then min
+        if (strlen($field) < $min) return "Surname must be more than $min characters length";
+
+        // if pass length is more then max
+        if (strlen($field) > $max) return "Surname must be less than $max characters length";
+
+        return ''; //falsy
+    }
+
+    public function validateFeedback($field, $max)
+    {
+        // Validate Feedback 
+        if (empty($field)) return "Please fill out the field";
+
+        // if pass length is more then max
+        if (strlen($field) > $max) return "Must be less than $max characters length";
+
+        return ''; //falsy
+    }
 
 }
