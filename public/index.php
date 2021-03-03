@@ -33,6 +33,9 @@ $app->router->post('/register', [AuthController::class, 'register']);
 
 $app->router->get('/logout', [AuthController::class, 'logout']);
 
-$app->router->get('/feedbacks', [FeedbackController::class, 'feedbacks']);
+// $app->router->get('/feedbacks', [FeedbackController::class, 'feedbacks']);
+
+$app->router->get('/feedbacks', [FeedbackController::class, 'addFeedbacks']);
+$app->router->post('/feedbacks', [FeedbackController::class, 'addFeedbacks']);
 
 $app->run();
