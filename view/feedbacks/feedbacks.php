@@ -13,6 +13,7 @@
                     <div class="card-body">
                         <h5 class="card-title"> <i>Writen by: <?php echo $feedback->name ?></i> </h5>
                         <p class="card-text"><?php echo $feedback->body ?></p>
+                        <p><?php echo $feedback->feedbackCreated; ?></p>
                     </div>
                 </div>
         </div>
@@ -21,7 +22,7 @@
     
 
         <?php if(\app\core\Session::isUserLoggedIn()) : ?> 
-            <div class="row mt-5 justify-content-center">        
+            <!-- <div class="row mt-5 justify-content-center">        
                 <button  class="btn btn-info" style="margin-left: 30px;" onclick="showForm()">Leave Your Feedback Here </button>  
             </div>
 
@@ -29,7 +30,7 @@
             function showForm() {
                 document.getElementById('formAddFeedback').style.display = 'block';
             }
-        </script>  
+        </script>   -->
         <div id="formAddFeedback" class="row mt-5">
             <div class="col-sm-6 mx-auto">
                 <div class="card card-body bg-light " id="feedback">
